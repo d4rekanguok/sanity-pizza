@@ -5,8 +5,8 @@ import styles from './topping.module.css'
 export const UseTopping = ({ size, toppingId, x, y, i, rotation, scale }) => {
   return (
     <Spring
-      from={{ y: y - 40, opacity: 0 }}
-      to={{ y, opacity: 1 }}
+      from={{ y: y - 40, opacity: 0, rotation: 0 }}
+      to={{ y, opacity: 1, rotation }}
       delay={i * 15}
       config={config.wobbly}
     >
@@ -15,10 +15,10 @@ export const UseTopping = ({ size, toppingId, x, y, i, rotation, scale }) => {
         xlinkHref={`#${toppingId}`}
         opacity={props.opacity}
         transform={`
-        translate(${x}, ${props.y})
-        scale(${scale})
-        rotate(${rotation})
-      `}
+          translate(${x}, ${props.y})
+          scale(${scale})
+          rotate(${props.rotation})
+        `}
       />}
     </Spring>
   )

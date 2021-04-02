@@ -6,7 +6,10 @@ import styles from './pizza.module.css'
 
 export const Pizza = ({ data }) => {
   const { _id, svg: baseSvg, toppings, size, title } = data
-  const [ config, setConfig ] = useState({})
+  const [ config, setConfig ] = useState(toppings.reduce((config, topping) => {
+    config[topping._id] = 2
+    return config
+  }, {}))
 
   const handleChangeFor = (_id) => (v) => setConfig(config => ({
     ...config,
