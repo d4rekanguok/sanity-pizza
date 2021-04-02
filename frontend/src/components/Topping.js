@@ -3,12 +3,14 @@ import styles from './topping.module.css'
 
 export const UseTopping = ({ size, toppingId, x, y }) => {
   const rotation = generateInRange(0, 360)
+  const scale = generateInRange(8, 10) / 10
   return (
     <use
       className={styles.topping}
       xlinkHref={`#${toppingId}`}
       transform={`
         translate(${x}, ${y})
+        scale(${scale})
         rotate(${rotation})
       `}
     />
