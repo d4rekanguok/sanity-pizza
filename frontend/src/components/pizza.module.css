@@ -1,3 +1,16 @@
+.container {
+  border-radius: 0.75rem;
+  box-shadow:
+    0 7px  20px -5px  rgba(0, 0, 0, 0.08),
+    0 15px 40px -10px rgba(0, 0, 0, 0.12);
+  background-color: #FFEEB0;
+}
+
+.pizzaContainer {
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-bottom: 1px solid #E4D7A7;
+}
+
 .square {
   position: relative;
   width: 100%;
@@ -11,4 +24,15 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.caption {
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #7B5B20;
+}
+
+.form {
+  padding: 0.5rem 0;
 }

@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.container:focus-within {
+  background-color: white;
+}
+
+.topping {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topping svg {
+  width: 100%;
+  height: 100%;
+}
+
+.inputGroup {
+  flex: 1 1 auto;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.labelValue {
+  position: relative;
+  font-size: 1rem;
+}
+
+.labelValue:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5em;
+  background-color: orange;
+  opacity: 0.4;
+  border-radius: 2px;
+  transform: rotate(2deg);
+  transform-origin: center;
+}
+
+.labelValue[data-value="0"]:after {
+  background-color: gray;
+  transform: rotate(-2deg);
+}
+
+.labelValue[data-value="1"]:after {
+  background-color: lightgreen;
+  transform: rotate(0deg);
+}
+
+.labelValue[data-value="2"]:after {
+  background-color: purple;
+  transform: rotate(2deg);
+}
+
+.labelValue[data-value="3"]:after {
+  background-color: orange;
+  transform: rotate(4deg);
+}
+
+.labelValue[data-value="4"]:after {
+  background-color: red;
+  bottom: 0.125rem;
+  transform: rotate(6deg);
+}
+
+.label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.input {
+  appearance: none;
+  width: 100%;
+  height: 0.75rem;
+  background-color: #ECD88D;
+  border-radius: 100px;
+  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.12);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::-webkit-slider-thumb {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 100px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}

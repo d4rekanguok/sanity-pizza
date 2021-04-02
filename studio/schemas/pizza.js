@@ -1,5 +1,12 @@
 import * as React from 'react'
 
+const fieldSize = {
+  title: 'Size',
+  name: 'size',
+  type: 'number',
+  description: 'The size of the svg. Ideally we could automatically generate this number from svg field, but to keep thing simple lets enter it here.'
+}
+
 export const topping = {
   type: 'document',
   name: 'topping',
@@ -17,6 +24,7 @@ export const topping = {
       type: 'text',
       validation: Rule => Rule.required().min(2),
     },
+    fieldSize,
   ],
   preview: {
     select: {
@@ -47,6 +55,7 @@ export const pizza = {
       type: 'text',
       validation: Rule => Rule.required(),
     },
+    fieldSize,
     {
       title: 'Toppings',
       name: 'toppings',

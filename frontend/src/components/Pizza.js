@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Toppings } from './Topping'
 import { InputTopping } from './InputTopping'
-import { distributeRandomPoints } from '../utils/math'
 
 import styles from './pizza.module.css'
 
 export const Pizza = ({ data }) => {
-  const { _id, svg: baseSvg, toppings, size } = data
+  const { _id, svg: baseSvg, toppings, size, title } = data
   const [ config, setConfig ] = useState({})
 
   const handleChangeFor = (_id) => (v) => setConfig(config => ({
@@ -15,8 +14,8 @@ export const Pizza = ({ data }) => {
   }))
 
   return (
-    <section>
-      <figure>
+    <section className={styles.container}>
+      <figure className={styles.pizzaContainer}>
         <div className={styles.square}>
           <svg className={styles.pizza} viewBox={`0 0 ${size} ${size}`}>
             <symbol id={_id} dangerouslySetInnerHTML={{ __html: baseSvg }} />
@@ -38,9 +37,9 @@ export const Pizza = ({ data }) => {
             })}
           </svg>
         </div>
-        <figcaption>Your Pizza</figcaption>
+        <figcaption className={styles.caption}>Your {title}</figcaption>
       </figure>
-      <form>
+      <form className={styles.form}>
         {toppings.map(topping => (
           <InputTopping
             key={topping._id}

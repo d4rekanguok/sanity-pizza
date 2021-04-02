@@ -1,0 +1,27 @@
+.pizzaList {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pizzaListItem {
+  width: 100%;
+  max-width: 24rem;
+  list-style-type: none;
+}
+
+@media (min-width: 20rem) {
+  .pizzaListItem {
+    width: 75%;
+  }
+}
+
+@media (min-width: 32rem) {
+  .pizzaListItem {
+    width: 50%;
+  }
+}

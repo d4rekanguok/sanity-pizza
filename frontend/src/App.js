@@ -2,6 +2,7 @@ import { useData, statusName } from './useData'
 import { Pizza } from './components/Pizza'
 import groq from 'groq'
 
+import styles from './app.module.css'
 
 function App() {
   const { status, data } = useData('getAllPizza', groq`
@@ -32,9 +33,9 @@ function App() {
   }
 
   return (
-    <ul>
+    <ul className={styles.pizzaList}>
       {data.map(pizza => (
-        <li key={pizza._id} style={{ width: 300 }}>
+        <li className={styles.pizzaListItem} key={pizza._id}>
           <Pizza data={pizza} />
         </li>
       ))}
