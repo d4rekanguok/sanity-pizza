@@ -19,6 +19,7 @@ export const useData = (key, ...clientArgs) => {
       setData(err)
       setStatus(statusName.error)
     })
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, [key])
 
   return { status, data }
