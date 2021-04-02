@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useData, statusName } from './useData'
+import { Pizza } from './components/Pizza'
+import groq from 'groq'
+
 
 function App() {
+  const { status, data } = useData('getAllPizza', groq`
+    *[_type == "pizza"] {
+      ...,
+      toppings[] -> {
+        _id,
+        title,
+        svg,
+        size,
+      }
+    }
+  `)
+
+  if (status === statusName.error) {
+    return (
+      <div>
+        <h1>Oops, something's wrong.</h1>
+        <pre>{JSON.stringify(data, null, 1)}</pre>
+      </div>
+    )
+  }
+
+  if (status === statusName.loading) {
+    return (
+      <div>We're getting there</div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ul>
+      {data.map(pizza => (
+        <li key={pizza._id} style={{ width: 300 }}>
+          <Pizza data={pizza} />
+        </li>
+      ))}
+    </ul>
   );
 }
 
