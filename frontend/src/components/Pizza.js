@@ -26,7 +26,7 @@ export const Pizza = ({ data }) => {
               <symbol key={toppingId} id={toppingId} dangerouslySetInnerHTML={{ __html: svg }} />
             ))}
 
-            <use xlinkHref={`#${_id}`} />
+            <use href={`#${_id}`} />
             {toppings.map(({ _id: toppingId, size: toppingSize }) => {
               const amount = config[toppingId] * 10
               return (

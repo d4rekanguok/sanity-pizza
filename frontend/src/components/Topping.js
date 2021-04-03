@@ -12,13 +12,15 @@ export const UseTopping = ({ size, toppingId, x, y, i, rotation, scale }) => {
     >
       {props => <use
         className={styles.topping}
-        xlinkHref={`#${toppingId}`}
+        href={`#${toppingId}`}
         opacity={props.opacity}
-        transform={`
-          translate(${x}, ${props.y})
-          scale(${scale})
-          rotate(${props.rotation})
-        `}
+        style={{
+          transform: `
+            translate(${x}px, ${props.y}px)
+            scale(${scale})
+            rotate(${props.rotation}deg)
+          `
+          }}
       />}
     </Spring>
   )
