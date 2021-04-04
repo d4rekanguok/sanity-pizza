@@ -21,12 +21,11 @@ export const Pizza = ({ data }) => {
       <figure className={styles.pizzaContainer}>
         <div className={styles.square}>
           <svg className={styles.pizza} viewBox={`0 0 ${size} ${size}`}>
-            <symbol id={_id} dangerouslySetInnerHTML={{ __html: baseSvg }} />
             {toppings.map(({ _id: toppingId, svg }) => (
               <symbol key={toppingId} id={toppingId} dangerouslySetInnerHTML={{ __html: svg }} />
             ))}
 
-            <use href={`#${_id}`} />
+            <g dangerouslySetInnerHTML={{ __html: baseSvg }} />
             {toppings.map(({ _id: toppingId, size: toppingSize }) => {
               const amount = config[toppingId] * 10
               return (
