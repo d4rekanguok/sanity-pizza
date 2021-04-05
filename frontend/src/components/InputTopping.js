@@ -11,8 +11,10 @@ export const InputTopping = ({ data, pizzaId, value, onChange }) => {
     onChange(e.target.value)
   }
 
+  const valueAsPercentage = value === 0 ? 0 : value / 4 * 100
+
   return (
-    <div className={styles.container}>
+    <div data-value={value} className={styles.container}>
       <figure className={styles.topping} aria-label={title}>
         <div dangerouslySetInnerHTML={{ __html: svg }} />
       </figure>
@@ -22,7 +24,6 @@ export const InputTopping = ({ data, pizzaId, value, onChange }) => {
           <span
             role="region"
             aria-live="polite"
-            data-value={value}
             className={styles.labelValue}
           >
               {valueToLabel[value]}
@@ -36,6 +37,15 @@ export const InputTopping = ({ data, pizzaId, value, onChange }) => {
           type="range"
           min={0}
           max={4}
+          style={{
+            backgroundImage: `linear-gradient(
+              to right, 
+              var(--theme), 
+              var(--theme) ${valueAsPercentage}%,
+              rgba(255,255,255,0) ${valueAsPercentage}%,
+              rgba(255,255,255,0)
+            )`
+          }}
         />
       </div>
     </div>

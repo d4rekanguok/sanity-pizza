@@ -3,10 +3,37 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.5rem;
+  --theme: orange;
+  --rotation: 2deg;
 }
 
 .container:focus-within {
   background-color: white;
+}
+
+.container[data-value="0"] {
+  --theme: gray;
+  --rotation: -2deg;
+}
+
+.container[data-value="1"] {
+  --theme: lightgreen;
+  --rotation: 0deg;
+}
+
+.container[data-value="2"] {
+  --theme: purple;
+  --rotation: 2deg;
+}
+
+.container[data-value="3"] {
+  --theme: orange;
+  --rotation: 4deg;
+}
+
+.container[data-value="4"] {
+  --theme: red;
+  --rotation: 6deg;
 }
 
 .topping {
@@ -58,37 +85,11 @@
   left: 0;
   width: 100%;
   height: 0.5em;
-  background-color: orange;
+  background-color: var(--theme, orange);
   opacity: 0.4;
   border-radius: 2px;
-  transform: rotate(2deg);
+  transform: rotate(var(--rotation, 2deg));
   transform-origin: center;
-}
-
-.labelValue[data-value="0"]:after {
-  background-color: gray;
-  transform: rotate(-2deg);
-}
-
-.labelValue[data-value="1"]:after {
-  background-color: lightgreen;
-  transform: rotate(0deg);
-}
-
-.labelValue[data-value="2"]:after {
-  background-color: purple;
-  transform: rotate(2deg);
-}
-
-.labelValue[data-value="3"]:after {
-  background-color: orange;
-  transform: rotate(4deg);
-}
-
-.labelValue[data-value="4"]:after {
-  background-color: red;
-  bottom: 0.125rem;
-  transform: rotate(6deg);
 }
 
 .label {
