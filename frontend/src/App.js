@@ -19,27 +19,31 @@ function App() {
 
   if (status === statusName.error) {
     return (
-      <div>
-        <h1>Oops, something's wrong.</h1>
-        <pre>{JSON.stringify(data, null, 1)}</pre>
-      </div>
+      <main className={styles.layout}>
+        <div>
+          <h1>Oops, something's wrong.</h1>
+          <pre>{JSON.stringify(data, null, 1)}</pre>
+        </div>
+      </main>
     )
   }
 
   if (status === statusName.loading) {
     return (
-      <div>We're getting there</div>
+      <div className={styles.layout}>We're getting there...</div>
     )
   }
 
   return (
-    <ul className={styles.pizzaList}>
-      {data.map(pizza => (
-        <li className={styles.pizzaListItem} key={pizza._id}>
-          <Pizza data={pizza} />
-        </li>
-      ))}
-    </ul>
+    <main>
+      <ul className={styles.pizzaList + ' ' + styles.layout}>
+        {data.map(pizza => (
+          <li className={styles.pizzaListItem} key={pizza._id}>
+            <Pizza data={pizza} />
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }
 
