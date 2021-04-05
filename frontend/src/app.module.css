@@ -11,17 +11,12 @@
 .pizzaListItem {
   width: 100%;
   max-width: 24rem;
+  min-width: 20rem;
   list-style-type: none;
 }
 
-@media (min-width: 20rem) {
+@media (min-width: 40rem) {
   .pizzaListItem {
     width: 75%;
-  }
-}
-
-@media (min-width: 32rem) {
-  .pizzaListItem {
-    width: 50%;
   }
 }
